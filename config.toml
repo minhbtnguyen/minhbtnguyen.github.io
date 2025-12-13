@@ -1,0 +1,29 @@
+theme = "awesome-identity"
+baseURL = "https://mnguyen0226.github.io/"
+title = "Minh T. Nguyen"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params.profile]
+  portrait = "profile_image.jpg"
+  firstname = "Minh"
+  lastname = "Nguyen"
+  title = "Software Engineer · ML Systems"
+  bio = """
+  An engineer focused on **production ML systems**—the kind that ship, scale, and stay up.
+
+  Built ML-driven systems across **finance, autonomous systems, startups, and research labs**, with an emphasis on reliability, observability, and long-term maintainability.
+
+  Systems-minded, with a focus on clean architecture and long-term optimization—often found playing pickleball, running marathons, or over a chessboard.
+  """
+
+[params.contacts]
+  email = "minhbtnguyen.work@gmail.com"
+  github = "mnguyen0226"
+  linkedin = "minhbtnguyen"
+
+[params.footer]
+  poweredBy = false
