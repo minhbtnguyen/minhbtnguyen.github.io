@@ -17,6 +17,10 @@
   <a class="contact" href="https://linkedin.com/in/{{ $id }}">
     <i class="fab fa-linkedin" aria-hidden="true"></i>
   </a>
+    {{- else if (eq $service "scholar") }}
+  <a class="contact" href="https://scholar.google.com/citations?user={{ $id }}">
+    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+  </a>
     {{- else if (eq $service "youtube") }}
   <a class="contact" href="https://youtube.com/@{{ $id }}">
     <i class="fab fa-youtube" aria-hidden="true"></i>
