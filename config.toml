@@ -13,7 +13,7 @@ title = "Minh T. Nguyen"
   lastname = "Nguyen"
   title = "Machine Learning Engineer"
   bio = """
-  An engineer focused on **production ML systems**—the kind that ship, scale, and stay up.
+  An engineer focused on **production ML systems** - the kind that ship, scale, and stay up.
 
   Built ML-driven systems across **finance, autonomous systems, startups, and research labs**, with an emphasis on reliability, observability, and long-term maintainability.
 
@@ -28,3 +28,26 @@ title = "Minh T. Nguyen"
 
 [params.footer]
   poweredBy = false
+
+[params.companies]
+  [[params.companies.logos]]
+    name = "BlackRock, Inc"
+    image = "/images/companies/blackrock_logo.png"
+  [[params.companies.logos]]
+    name = "Tesla, Inc"
+    image = "/images/companies/tesla_logo.png"
+  [[params.companies.logos]]
+    name = "Homebase (Y Combinator)"
+    image = "/images/companies/homebase_logo.jpg"
+  [[params.companies.logos]]
+    name = "Commonwealth Cyber Initiatives"
+    image = "/images/companies/cci_logo.jpeg"
+  [[params.companies.logos]]
+    name = "Shield AI"
+    image = "/images/companies/shield_ai_logo.jpg"
+  [[params.companies.logos]]
+    name = "Geo Lab"
+    image = "/images/companies/geo_lab_logo.png"
+  [[params.companies.logos]]
+    name = "Virginia Tech"
+    image = "/images/companies/vt_logo.png"
