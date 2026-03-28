@@ -1,70 +1,63 @@
-.companies {
-  margin: 2.2rem auto;
+.companies-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 0.6em 0;
 
-  .companies__viewport {
+  &__viewport {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   }
 
-  .companies__track {
+  &__track {
     display: flex;
     width: max-content;
-    will-change: transform;
+    animation: ticker-scroll 32s linear infinite;
   }
 
-  .companies__group {
+  &__group {
     display: flex;
     align-items: center;
-    gap: 2.2rem;
-    padding-right: 2.2rem;
+    gap: 2.5rem;
+    padding-right: 2.5rem;
   }
 
-  .companies__logo {
+  &__logo {
     flex: 0 0 auto;
-    height: 3rem;
+    height: 1.8rem;
     display: flex;
     align-items: center;
-    justify-content: center;
 
     img {
       max-height: 100%;
       width: auto;
-      opacity: 0.75;
+      opacity: 0.5;
       filter: grayscale(1);
-      transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3s ease;
     }
 
     img:hover {
-      opacity: 1;
+      opacity: 0.9;
     }
   }
 }
 
-.companies--animate {
-  .companies__track {
-    animation: companies-marquee 28s linear infinite;
-  }
-}
-
-@keyframes companies-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-25%);
-  }
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .companies--animate {
-    .companies__viewport {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    .companies__track {
-      animation: none;
-    }
+  .companies-ticker__track {
+    animation: none;
   }
+}
+
+body {
+  padding-bottom: 3.2rem;
 }

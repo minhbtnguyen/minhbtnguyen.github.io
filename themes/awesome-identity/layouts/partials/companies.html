@@ -1,39 +1,37 @@
 {{- $logos := .Site.Params.companies.logos -}}
 {{- if gt (len $logos) 0 -}}
-<section class="companies{{ if ge (len $logos) 2 }} companies--animate{{ end }}" aria-label="Companies">
-  <div class="companies__viewport">
-    <div class="companies__track">
-      <div class="companies__group">
+<div class="companies-ticker">
+  <div class="companies-ticker__viewport">
+    <div class="companies-ticker__track">
+      <div class="companies-ticker__group">
         {{- range $logos -}}
-        <div class="companies__logo">
+        <div class="companies-ticker__logo">
           <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy" decoding="async" />
         </div>
         {{- end -}}
       </div>
-      {{- if ge (len $logos) 2 -}}
-      <div class="companies__group" aria-hidden="true">
+      <div class="companies-ticker__group" aria-hidden="true">
         {{- range $logos -}}
-        <div class="companies__logo">
+        <div class="companies-ticker__logo">
           <img src="{{ .image | relURL }}" alt="" loading="lazy" decoding="async" />
         </div>
         {{- end -}}
       </div>
-      <div class="companies__group" aria-hidden="true">
+      <div class="companies-ticker__group" aria-hidden="true">
         {{- range $logos -}}
-        <div class="companies__logo">
+        <div class="companies-ticker__logo">
           <img src="{{ .image | relURL }}" alt="" loading="lazy" decoding="async" />
         </div>
         {{- end -}}
       </div>
-      <div class="companies__group" aria-hidden="true">
+      <div class="companies-ticker__group" aria-hidden="true">
         {{- range $logos -}}
-        <div class="companies__logo">
+        <div class="companies-ticker__logo">
           <img src="{{ .image | relURL }}" alt="" loading="lazy" decoding="async" />
         </div>
         {{- end -}}
       </div>
-      {{- end -}}
     </div>
   </div>
-</section>
+</div>
 {{- end -}}
