@@ -1,0 +1,134 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  padding: 0.75em 1em;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  &__tab {
+    font-family: Jura, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(0, 0, 0, 0.55);
+    white-space: nowrap;
+    padding: 0.45em 1.1em;
+    border: 1.5px solid rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    transition: color 0.25s, border-color 0.25s, background 0.25s;
+
+    &:hover {
+      color: rgb(182, 38, 44);
+      border-color: rgb(182, 38, 44);
+    }
+
+    &--active {
+      color: #fff !important;
+      background: rgb(182, 38, 44);
+      border-color: rgb(182, 38, 44);
+    }
+  }
+}
+
+.under-construction {
+  text-align: center;
+  padding: 5em 1em;
+
+  &__icon {
+    font-size: 2.5rem;
+    color: #ddd;
+    margin-bottom: 0.6em;
+    display: block;
+  }
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 0.5em;
+  }
+
+  &__message {
+    font-family: Jura, sans-serif;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.4);
+    line-height: 1.8;
+  }
+}
+
+.page-content {
+  padding: 2em 0 4em;
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
+    font-size: 2rem;
+    color: rgb(182, 38, 44);
+    text-transform: uppercase;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.8);
+
+    h2 {
+      font-family: Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 2em 0 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-family: Jura, sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 1.5em 0 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    ul, ol {
+      margin: 0.8em 0 1em 1.5em;
+
+      li {
+        margin-bottom: 0.4em;
+      }
+    }
+
+    a {
+      color: rgb(182, 38, 44);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #eee;
+      margin: 2em 0;
+    }
+  }
+}
