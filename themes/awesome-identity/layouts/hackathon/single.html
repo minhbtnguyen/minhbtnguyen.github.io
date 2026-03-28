@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="hackathon-page">
+  <h1 class="hackathon-page__title">{{ .Title }}</h1>
+  <p class="hackathon-page__subtitle">Sleep is a post-hackathon problem.</p>
+  {{ range .Params.projects }}
+  <a class="project-card" href="{{ .github }}" target="_blank" rel="noopener noreferrer">
+    <div class="project-card__image">
+      <img src="{{ .image }}" alt="{{ .name }}" loading="lazy" />
+    </div>
+    <div class="project-card__body">
+      <div class="project-card__header">
+        <div class="project-card__title-row">
+          <h2 class="project-card__name">{{ .name }}</h2>
+          {{ if .archived }}<span class="project-card__archived">Archived</span>{{ end }}
+        </div>
+        <span class="project-card__github">
+          <i class="fab fa-github"></i>
+        </span>
+      </div>
+      <p class="project-card__description">{{ .description }}</p>
+      <div class="project-card__tech">
+        {{ range .tech }}
+        <span class="project-card__tag">{{ . }}</span>
+        {{ end }}
+      </div>
+      <div class="project-card__footer">
+        <span class="project-card__hackathon">{{ .hackathon }}</span>
+        <span class="project-card__year">{{ .year }}</span>
+      </div>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

@@ -18,6 +18,20 @@
         </div>
         {{- end -}}
       </div>
+      <div class="companies__group" aria-hidden="true">
+        {{- range $logos -}}
+        <div class="companies__logo">
+          <img src="{{ .image | relURL }}" alt="" loading="lazy" decoding="async" />
+        </div>
+        {{- end -}}
+      </div>
+      <div class="companies__group" aria-hidden="true">
+        {{- range $logos -}}
+        <div class="companies__logo">
+          <img src="{{ .image | relURL }}" alt="" loading="lazy" decoding="async" />
+        </div>
+        {{- end -}}
+      </div>
       {{- end -}}
     </div>
   </div>

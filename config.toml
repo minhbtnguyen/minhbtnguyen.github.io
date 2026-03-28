@@ -8,7 +8,7 @@ title = "Minh T. Nguyen"
       unsafe = true
 
 [params.profile]
-  portrait = "profile_image.jpg"
+  portrait = "images/home/profile_image.jpg"
   firstname = "Minh"
   lastname = "Nguyen"
   title = "Machine Learning Engineer"
@@ -32,22 +32,22 @@ title = "Minh T. Nguyen"
 [params.companies]
   [[params.companies.logos]]
     name = "BlackRock, Inc"
-    image = "/images/companies/blackrock_logo.png"
+    image = "/images/home/blackrock_logo.png"
   [[params.companies.logos]]
     name = "Tesla, Inc"
-    image = "/images/companies/tesla_logo.png"
+    image = "/images/home/tesla_logo.png"
   [[params.companies.logos]]
     name = "Homebase (Y Combinator)"
-    image = "/images/companies/homebase_logo.jpg"
+    image = "/images/home/homebase_logo.jpg"
   [[params.companies.logos]]
     name = "Commonwealth Cyber Initiatives"
-    image = "/images/companies/cci_logo.jpeg"
+    image = "/images/home/cci_logo.jpeg"
   [[params.companies.logos]]
     name = "Shield AI"
-    image = "/images/companies/shield_ai_logo.jpg"
+    image = "/images/home/shield_ai_logo.jpg"
   [[params.companies.logos]]
     name = "Geo Lab"
-    image = "/images/companies/geo_lab_logo.png"
+    image = "/images/home/geo_lab_logo.png"
   [[params.companies.logos]]
     name = "Virginia Tech"
-    image = "/images/companies/vt_logo.png"
+    image = "/images/home/vt_logo.png"
