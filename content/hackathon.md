@@ -8,6 +8,6 @@ projects:
     tech: ["Python", "SQL", "Dash", "Docker", "Kubernetes", "Google Cloud Platform"]
     hackathon: "Plotly's ChatGPT & Generative AI Hackathon"
     year: "2023"
-    image: "/images/hackathons/rentalgpt/RentalGPT_Won.png"
+    image: "/images/hackathons/rentalgpt/RentalGPT_Won.jpg"
     archived: true
 ---
