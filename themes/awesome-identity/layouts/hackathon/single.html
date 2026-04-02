@@ -1,7 +1,5 @@
 {{ define "main" }}
 <div class="hackathon-page">
-  <h1 class="hackathon-page__title">{{ .Title }}</h1>
-  <p class="hackathon-page__subtitle">Sleep is a post-hackathon problem.</p>
   {{ range .Params.projects }}
   <a class="project-card" href="{{ .github }}" target="_blank" rel="noopener noreferrer">
     <div class="project-card__image">

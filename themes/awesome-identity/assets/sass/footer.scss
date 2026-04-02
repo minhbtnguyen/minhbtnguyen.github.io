@@ -3,24 +3,29 @@
   width: 92%;
   height: auto;
   box-sizing: border-box;
-  color: #4f515d;
-  font-size: 0.8rem;
+  font-family: 'Shippori Mincho', Georgia, serif;
+  font-style: italic;
+  color: #bbb;
+  font-size: 0.9rem;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 0 auto;
   padding-top: 18px;
   padding-bottom: 18px;
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e4ddd4;
 
-  @media only screen and (min-width: 1024px) {
-    width: 1024px;
+  @media only screen and (min-width: 720px) {
+    width: 720px;
   }
+
   p {
     margin-top: 0.4em;
     margin-bottom: 0.4em;
   }
+
   a:hover {
-    color: #4f515d;
+    color: #111;
+    opacity: 1;
   }
 }

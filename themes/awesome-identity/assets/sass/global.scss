@@ -5,9 +5,11 @@
 
 html,
 body {
-  font-family: Jura, sans-serif;
-  font-size: 1rem;
+  font-family: 'Shippori Mincho', Georgia, serif;
+  font-size: 1.1rem;
   height: 100%;
+  background: #f8f4ef;
+  color: #111;
 }
 
 body {
@@ -21,32 +23,35 @@ body {
   margin: 0 auto;
   margin-top: 3em;
 
-  @media only screen and (min-width: 1024px) {
-    width: 1024px;
+  @media only screen and (min-width: 720px) {
+    width: 720px;
   }
 }
 
 a {
-  color: rgb(182, 38, 44);
+  color: #111;
   text-decoration: none;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
+  transition: opacity 0.2s;
 
   &:visited,
   &:hover,
   &:active {
     text-decoration: none;
   }
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 ::selection {
-  background-color: rgb(182, 38, 44);
-  color: white;
+  background-color: #111;
+  color: #fff;
 }
 
 ::-moz-selection {
-  background-color: rgb(182, 38, 44);
-  color: white;
+  background-color: #111;
+  color: #fff;
 }
 
 .tex sub, .latex sub, .latex sup {
