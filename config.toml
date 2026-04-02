@@ -27,6 +27,7 @@ title = "Minh T. Nguyen"
 
 [params.footer]
   poweredBy = false
+  copyright = "Minh T. Nguyen"
 
 [params.companies]
   [[params.companies.logos]]
