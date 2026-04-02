@@ -2,39 +2,39 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
-  padding: 0.75em 1em;
+  background: #f8f4ef;
+  padding: 1em 0;
 
   &__inner {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 2em;
   }
 
   &__tab {
-    font-family: Jura, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: rgba(0, 0, 0, 0.55);
-    white-space: nowrap;
-    padding: 0.45em 1.1em;
-    border: 1.5px solid rgba(0, 0, 0, 0.18);
-    border-radius: 4px;
-    transition: color 0.25s, border-color 0.25s, background 0.25s;
+    font-family: 'Shippori Mincho', Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: #999;
+    letter-spacing: 0.01em;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    transition: color 0.2s;
 
     &:hover {
-      color: rgb(182, 38, 44);
-      border-color: rgb(182, 38, 44);
+      color: #111;
+      opacity: 1;
     }
 
     &--active {
-      color: #fff !important;
-      background: rgb(182, 38, 44);
-      border-color: rgb(182, 38, 44);
+      color: #111 !important;
+      font-style: italic;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
     }
   }
 }
@@ -44,24 +44,25 @@
   padding: 5em 1em;
 
   &__icon {
-    font-size: 2.5rem;
-    color: #ddd;
-    margin-bottom: 0.6em;
+    font-size: 2rem;
+    color: #ccc;
+    margin-bottom: 0.8em;
     display: block;
   }
 
   &__title {
-    font-family: Roboto, sans-serif;
-    font-weight: 100;
-    font-size: 2rem;
-    color: rgba(0, 0, 0, 0.75);
+    font-family: 'Shippori Mincho', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #333;
     margin-bottom: 0.5em;
   }
 
   &__message {
-    font-family: Jura, sans-serif;
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.4);
+    font-family: 'Shippori Mincho', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #999;
     line-height: 1.8;
   }
 }
@@ -70,34 +71,31 @@
   padding: 2em 0 4em;
 
   &__title {
-    font-family: Roboto, sans-serif;
-    font-weight: 100;
-    font-size: 2rem;
-    color: rgb(182, 38, 44);
-    text-transform: uppercase;
+    font-family: 'Shippori Mincho', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #111;
     margin-bottom: 1.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e8e8e8;
   }
 
   &__body {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
 
     h2 {
-      font-family: Roboto, sans-serif;
+      font-family: 'Shippori Mincho', Georgia, serif;
       font-weight: 700;
       font-size: 1.2rem;
       margin: 2em 0 0.8em;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     h3 {
-      font-family: Jura, sans-serif;
+      font-family: 'Shippori Mincho', Georgia, serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       margin: 1.5em 0 0.5em;
     }
 
@@ -114,9 +112,13 @@
     }
 
     a {
-      color: rgb(182, 38, 44);
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
 
       &:hover {
+        opacity: 0.5;
         text-decoration: underline;
       }
     }
@@ -127,7 +129,7 @@
 
     hr {
       border: 0;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e8e8e8;
       margin: 2em 0;
     }
   }

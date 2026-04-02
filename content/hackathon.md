@@ -3,7 +3,7 @@ title: "Hackathon"
 type: "hackathon"
 projects:
   - name: "RentalGPT"
-    description: "An interactive, user-friendly dashboard providing services to multiple stakeholders. Using the \"Two Sigma Connect: Rental Listing Inquiries\" dataset from Kaggle, it delivers in-depth data analysis, interactive visualization, predictive analytics, and virtual assistance."
+    description: "Rental analytics platform combining predictive modeling and a GPT-powered assistant, serving landlords, renters, and analysts from a single data pipeline."
     github: "https://github.com/minhbtnguyen/rentalgpt"
     tech: ["Python", "SQL", "Dash", "Docker", "Kubernetes", "Google Cloud Platform"]
     hackathon: "Plotly's ChatGPT & Generative AI Hackathon"
