@@ -54,6 +54,20 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+
+    (function () {
+      const nav = document.querySelector('.nav');
+      let lastY = 0;
+      window.addEventListener('scroll', function () {
+        const currentY = window.scrollY;
+        if (currentY > lastY && currentY > 60) {
+          nav.classList.add('nav--hidden');
+        } else {
+          nav.classList.remove('nav--hidden');
+        }
+        lastY = currentY;
+      }, { passive: true });
+    })();
   </script>
   </body>
 </html>
