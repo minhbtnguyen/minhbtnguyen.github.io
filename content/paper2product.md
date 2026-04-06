@@ -1,5 +1,5 @@
 ---
-title: "Paper2Product"
+title: "Products"
 ---
 
 Under construction.
