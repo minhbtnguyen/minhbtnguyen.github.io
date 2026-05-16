@@ -43,6 +43,7 @@
     </div>
 {{ partial "footer.html" . }}
 {{ partial "crisp.html" . }}
+{{ partial "contact-modal.html" . }}
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -67,6 +68,104 @@
         }
         lastY = currentY;
       }, { passive: true });
+    })();
+
+    (function () {
+      const modal = document.getElementById('contact-modal');
+      if (!modal) return;
+      const form = document.getElementById('contact-modal-form');
+      const status = form.querySelector('.contact-modal__status');
+      const submit = form.querySelector('.contact-modal__submit');
+
+      const MIN_FILL_MS = 3000;
+      const COOLDOWN_MS = 60 * 1000;
+      const STORAGE_KEY = 'contactLastSent';
+      let openedAt = 0;
+
+      function open(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('contact-modal-open');
+        openedAt = Date.now();
+        const firstInput = form.querySelector('input[name="name"]');
+        if (firstInput) setTimeout(() => firstInput.focus(), 50);
+      }
+
+      function close() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('contact-modal-open');
+      }
+
+      function cooldownRemaining() {
+        try {
+          const last = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+          if (!last) return 0;
+          return Math.max(0, COOLDOWN_MS - (Date.now() - last));
+        } catch (e) { return 0; }
+      }
+
+      document.addEventListener('click', function (e) {
+        const trigger = e.target.closest('[data-open-contact], .reach-out-link');
+        if (trigger) { open(e); return; }
+        if (e.target.closest('[data-close-modal]')) { close(); }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+      });
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        if (form._gotcha && form._gotcha.value) {
+          status.textContent = 'Thanks — message sent.';
+          status.className = 'contact-modal__status is-success';
+          setTimeout(close, 1400);
+          return;
+        }
+
+        if (Date.now() - openedAt < MIN_FILL_MS) {
+          status.textContent = 'Take a breath — try again in a moment.';
+          status.className = 'contact-modal__status is-error';
+          return;
+        }
+
+        const wait = cooldownRemaining();
+        if (wait > 0) {
+          status.textContent = 'Please wait ' + Math.ceil(wait / 1000) + 's before sending another message.';
+          status.className = 'contact-modal__status is-error';
+          return;
+        }
+
+        submit.disabled = true;
+        status.textContent = 'Sending…';
+        status.className = 'contact-modal__status';
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            try { localStorage.setItem(STORAGE_KEY, String(Date.now())); } catch (e) {}
+            status.textContent = 'Thanks — message sent.';
+            status.className = 'contact-modal__status is-success';
+            form.reset();
+            setTimeout(close, 1400);
+          } else {
+            const data = await res.json().catch(() => ({}));
+            status.textContent = (data.errors && data.errors[0] && data.errors[0].message) || 'Something went wrong. Try again?';
+            status.className = 'contact-modal__status is-error';
+          }
+        } catch (err) {
+          status.textContent = 'Network error. Try again?';
+          status.className = 'contact-modal__status is-error';
+        } finally {
+          submit.disabled = false;
+        }
+      });
     })();
   </script>
   </body>
