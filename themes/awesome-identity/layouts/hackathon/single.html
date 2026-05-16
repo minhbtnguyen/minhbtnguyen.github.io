@@ -22,7 +22,7 @@
         {{ end }}
       </div>
       <div class="project-card__footer">
-        <span class="project-card__hackathon">{{ .hackathon }}</span>
+        {{ if .hackathon }}<span class="project-card__hackathon">{{ .hackathon }}</span>{{ end }}
         <span class="project-card__year">{{ .year }}</span>
       </div>
     </div>

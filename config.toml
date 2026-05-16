@@ -17,7 +17,7 @@ title = "Minh T. Nguyen"
 
   Built ML-driven systems across **finance, robotics, startups, and research labs**, with a bias toward reliability and long-term maintainability.
 
-  Curious about what others are building — feel free to reach out."""
+  Curious about what others are building — feel free to <a href="#" class="reach-out-link" data-open-contact>reach out</a>."""
 
 [params.contacts]
   email = "minhbtnguyen.work@gmail.com"

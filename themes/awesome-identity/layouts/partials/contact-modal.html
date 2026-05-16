@@ -1,0 +1,31 @@
+{{/*
+  Contact modal. Triggered by any element with class="reach-out-link".
+  Submits to Formspree via fetch. Replace FORMSPREE_ENDPOINT below with
+  the endpoint you get after creating a form at https://formspree.io.
+*/}}
+<div class="contact-modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
+  <div class="contact-modal__backdrop" data-close-modal></div>
+  <div class="contact-modal__panel" role="document">
+    <button class="contact-modal__close" type="button" data-close-modal aria-label="Close">&times;</button>
+    <h2 class="contact-modal__title" id="contact-modal-title">Say hello</h2>
+    <p class="contact-modal__subtitle">Drop a note &mdash; I read everything.</p>
+
+    <form class="contact-modal__form" id="contact-modal-form" action="https://formspree.io/f/xpqnazav" method="POST">
+      <label class="contact-modal__field">
+        <span>Name</span>
+        <input type="text" name="name" required autocomplete="name" />
+      </label>
+      <label class="contact-modal__field">
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+      <label class="contact-modal__field">
+        <span>Message</span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <button class="contact-modal__submit" type="submit">Send</button>
+      <p class="contact-modal__status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
