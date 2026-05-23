@@ -2,6 +2,7 @@
 <div class="under-construction">
   <i class="fas fa-tools under-construction__icon"></i>
   <h1 class="under-construction__title">{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p class="under-construction__subtitle">{{ . }}</p>{{ end }}
   <p class="under-construction__message">This page is under construction.<br>Check back soon.</p>
 </div>
 {{ end }}

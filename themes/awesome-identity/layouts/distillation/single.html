@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="distillation-page">
+  {{ with .Params.subtitle }}<p class="distillation-page__subtitle">{{ . }}</p>{{ end }}
+
+  <ol class="timeline">
+    {{ range .Params.entries }}
+    <li class="timeline__item">
+      <div class="timeline__marker"></div>
+      <div class="timeline__date">{{ .date }}</div>
+      <article class="timeline__card">
+        <p class="timeline__source">
+          {{ with .sourceUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end }}{{ .source }}{{ if .sourceUrl }}</a>{{ end }}
+        </p>
+        <p class="timeline__takeaway">{{ .takeaway }}</p>
+        {{ with .repoUrl }}
+        <a class="timeline__repo" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> Repo
+        </a>
+        {{ end }}
+      </article>
+    </li>
+    {{ end }}
+  </ol>
+</div>
+{{ end }}

@@ -61,7 +61,15 @@
     font-weight: 400;
     font-size: 1.8rem;
     color: #333;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
+  }
+
+  &__subtitle {
+    font-family: 'Shippori Mincho', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 1.2em;
   }
 
   &__message {

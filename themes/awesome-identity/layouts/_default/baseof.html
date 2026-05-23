@@ -36,7 +36,7 @@
       gtag('config', 'G-1EQTBEKCGP');
     </script>
   </head>
-  <body>
+  <body{{ if eq .Type "distillation" }} class="page-distillation"{{ end }}{{ if eq .Type "hackathon" }} class="page-ideas"{{ end }}>
 {{ partial "nav.html" . }}
     <div class="wrap">
       {{ block "main" . }}{{ end }}

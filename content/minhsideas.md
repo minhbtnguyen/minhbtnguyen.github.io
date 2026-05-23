@@ -1,5 +1,6 @@
 ---
 title: "Minh's Ideas"
+subtitle: "My original ideas"
 type: "hackathon"
 projects:
   - name: "BYOB: Bring Your Own Bike"
