@@ -8,13 +8,16 @@
       <div class="timeline__marker"></div>
       <div class="timeline__date">{{ .date }}</div>
       <article class="timeline__card">
+        {{ with .title }}<h3 class="timeline__title">{{ . }}</h3>{{ end }}
+        {{ if .source }}
         <p class="timeline__source">
           {{ with .sourceUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end }}{{ .source }}{{ if .sourceUrl }}</a>{{ end }}
         </p>
+        {{ end }}
         <p class="timeline__takeaway">{{ .takeaway }}</p>
         {{ with .repoUrl }}
-        <a class="timeline__repo" href="{{ . }}" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i> Repo
+        <a class="timeline__repo" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="View repo on GitHub">
+          <i class="fab fa-github"></i>
         </a>
         {{ end }}
       </article>
