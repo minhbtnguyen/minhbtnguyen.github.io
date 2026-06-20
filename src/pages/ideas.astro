@@ -25,7 +25,7 @@ import { projects } from '../data/projects.js';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           projects.map((p) => (
-            <article class="group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:border-[#C0B5A8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden">
+            <article class="project-card group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] overflow-hidden">
 
               <!-- Screenshot image — 16:9 aspect ratio -->
               <div class="relative overflow-hidden bg-[#EDE8E0]" style="aspect-ratio:16/9;">
@@ -104,3 +104,26 @@ import { projects } from '../data/projects.js';
     </div>
   </div>
 </Layout>
+
+<style>
+  @keyframes borderPulse {
+    0%, 100% { border-color: #E4DDD4; }
+    50%       { border-color: #CC4400; }
+  }
+
+  .project-card {
+    animation: borderPulse 3s ease-in-out infinite;
+  }
+
+  .project-card:nth-child(2) { animation-delay: 1s; }
+  .project-card:nth-child(3) { animation-delay: 2s; }
+  .project-card:nth-child(4) { animation-delay: 0.5s; }
+  .project-card:nth-child(5) { animation-delay: 1.5s; }
+  .project-card:nth-child(6) { animation-delay: 2.5s; }
+
+  .project-card:hover {
+    animation: none;
+    border-color: #CC4400;
+    transition: border-color 0.3s ease;
+  }
+</style>

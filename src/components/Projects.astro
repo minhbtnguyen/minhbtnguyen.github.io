@@ -14,7 +14,7 @@ const featured = projects.filter((p) => p.featured);
   <div class="space-y-3">
     {
       featured.map((p) => (
-        <div class="group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:border-[#C0B5A8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden p-5">
+        <div class="project-card group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] overflow-hidden p-5">
 
           <!-- Title + GitHub icon -->
           <div class="flex items-start justify-between gap-2 mb-3">
@@ -74,3 +74,22 @@ const featured = projects.filter((p) => p.featured);
     Built nights and weekends. Day-job production work is in Experience.
   </p>
 </div>
+
+<style>
+  @keyframes borderPulse {
+    0%, 100% { border-color: #E4DDD4; }
+    50%       { border-color: #CC4400; }
+  }
+
+  .project-card {
+    animation: borderPulse 3s ease-in-out infinite;
+  }
+
+  .project-card:nth-child(2) { animation-delay: 1.5s; }
+
+  .project-card:hover {
+    animation: none;
+    border-color: #CC4400;
+    transition: border-color 0.3s ease;
+  }
+</style>

@@ -33,11 +33,12 @@ const {
       (function () {
         try {
           var saved = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (saved === 'dark' || (!saved && prefersDark)) {
+          if (saved !== 'light') {
             document.documentElement.classList.add('dark');
           }
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
       })();
     </script>
   </head>
@@ -115,10 +116,30 @@ const {
     border-color: #333333 !important;
   }
 
-  /* ── Company / school logo images — white bg in dark mode ── */
-  html.dark .logo-box,
+  /* ── Company / school logo images — white bg + rounded square in dark mode ── */
+  html.dark .logo-box {
+    background-color: #FFFFFF !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+  }
   html.dark .logo-box img {
     background-color: #FFFFFF !important;
     mix-blend-mode: normal !important;
   }
+
+  /* ── Email button in dark mode: orange fill + white text ── */
+  html.dark .contact-email {
+    background-color: #CC4400 !important;
+    color: #FFFFFF !important;
+    border-color: #CC4400 !important;
+  }
+
+  /* ── Fix hover effects blocked by dark mode specificity ──
+     html.dark .xxx has specificity (0,2,1) which beats Tailwind
+     hover classes at (0,2,0). Explicit overrides with !important fix this. */
+  html.dark .hover\:text-\[\#CC4400\]:hover     { color: #CC4400 !important; }
+  html.dark .hover\:bg-\[\#CC4400\]:hover       { background-color: #CC4400 !important; }
+  html.dark .hover\:text-white:hover            { color: #FFFFFF !important; }
+  html.dark .hover\:border-\[\#CC4400\]:hover   { border-color: #CC4400 !important; }
+  html.dark .hover\:decoration-\[\#CC4400\]:hover { text-decoration-color: #CC4400 !important; }
 </style>
