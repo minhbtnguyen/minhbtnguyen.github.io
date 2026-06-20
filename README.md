@@ -1,2 +1,2 @@
 # Personal Site
-My personal portfolio.
+My open-source personal site.
