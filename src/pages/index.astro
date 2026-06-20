@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Contact from '../components/Contact.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <div class="max-w-[1280px] mx-auto px-10 pt-12 pb-0">
+    <div class="flex gap-16">
+      <!-- Main content -->
+      <main class="flex-1 min-w-0">
+        <Hero />
+        <Contact />
+        <Experience />
+        <!-- Mobile: Spare-time Builds between Experience and Education -->
+        <div class="block lg:hidden py-10 border-b border-[#DDD5C8]">
+          <Projects />
+        </div>
+        <Education />
+        <Skills />
+      </main>
+      <!-- Sidebar: projects (desktop only) — fixed so it never moves on scroll -->
+      <aside class="w-[300px] shrink-0 hidden lg:block">
+        <div
+          class="fixed top-[136px] hidden lg:block"
+          style="width:300px; right:calc(max(0px, (100vw - 1280px) / 2) + 40px);"
+        >
+          <Projects />
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-10">
+    <Footer />
+  </div>
+</Layout>

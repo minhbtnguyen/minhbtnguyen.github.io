@@ -1,0 +1,50 @@
+---
+const categories = [
+  {
+    label: 'Agentic AI',
+    skills: ['LLMs', 'LangChain', 'LangGraph', 'RAG', 'Embeddings', 'Vector DBs', 'Multi-Agent Orchestration'],
+  },
+  {
+    label: 'AI / ML',
+    skills: ['TensorFlow', 'PyTorch', 'scikit-learn', 'MLflow', 'SHAP', 'Transfer Learning', 'Time Series Forecasting'],
+  },
+  {
+    label: 'Backend',
+    skills: ['Python', 'SQL', 'Go', 'Java', 'FastAPI', 'Flask', 'Celery', 'Dash', 'Streamlit', 'Pandas', 'REST', 'Git'],
+  },
+  {
+    label: 'Data',
+    skills: ['Snowflake', 'Airflow', 'MySQL', 'PostgreSQL', 'MSSQL', 'Redis', 'InfluxDB', 'Tableau', 'Power BI'],
+  },
+  {
+    label: 'Cloud / DevOps',
+    skills: ['Azure', 'AWS', 'GCP', 'Docker', 'Kubernetes', 'CI/CD', 'Jenkins', 'Azure DevOps', 'Grafana'],
+  },
+];
+---
+
+<section id="skills" class="py-10 border-b border-[#DDD5C8]">
+  <div class="flex items-center gap-2 mb-6">
+    <div class="w-[3px] h-4 bg-[#CC4400]"></div>
+    <span class="text-[14px] font-medium tracking-[0.12em] uppercase text-[#888078]">Stack</span>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+    {
+      categories.map((cat) => (
+        <div>
+          <p class="text-[11px] font-medium uppercase tracking-[0.14em] text-[#888078] mb-2">
+            {cat.label}
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {cat.skills.map((skill) => (
+              <span class="px-2.5 py-1 text-[13px] font-light bg-[#F5F3F0] text-[#4A4540] border border-[#E8E4DE] rounded-sm cursor-default underline decoration-transparent hover:text-[#CC4400] hover:decoration-[#CC4400] transition-all duration-500">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,302 @@
+---
+const jobs = [
+  {
+    slug: 'blackrock',
+    letter: 'B',
+    color: '#111111',
+    logoSrc: '/logos/blackrock.png',
+    company: 'BlackRock',
+    sub: 'Technology & Operations',
+    role: 'Machine Learning Engineer',
+    period: 'May 2024 – Present',
+    duration: '2y 2m',
+    location: 'Philadelphia, PA',
+    summary: 'Built and shipped 4 production LLM and agentic systems end-to-end — automating 20,000+ hours of financial operations annually and serving 200+ internal users across RockAI.',
+    bullets: [
+      {
+        text: 'Built <strong>FIESTA</strong>, an end-to-end document understanding pipeline that automatically processes and extracts structured data from invoices using LLMs, OCR, and embedding-based retrieval.',
+        tags: ['LangChain', 'Azure Document Intelligence', 'Embeddings', 'RAG', 'Python', 'Docker', 'Kubernetes'],
+      },
+      {
+        text: 'Designed <strong>ValidAide</strong>, an agentic validation engine that reasons over documents and databases to automatically QC financial reports — replacing a previously manual process for a 30-person team.',
+        tags: ['LLM-as-a-Judge', 'Agentic AI', 'LangGraph', 'SQL', 'Python', 'Docker', 'Kubernetes'],
+      },
+      {
+        text: 'Created <strong>AI Halo</strong>, an internal Python SDK that gives the org a standardized way to measure AI adoption, system performance, and business ROI across all RockAI products.',
+        tags: ['Python', 'Java', 'Snowflake', 'InfluxDB', 'Grafana', 'Power BI', 'Docker', 'Kubernetes'],
+      },
+      {
+        text: 'Shipped a <strong>LLM-powered ticketing platform</strong> that triages requests, generates actionable items, and automates leadership reporting for <strong>200+ internal users</strong>.',
+        tags: ['LLMs', 'Streamlit', 'Docker', 'Kubernetes', 'Azure DevOps'],
+      },
+    ],
+    open: true,
+  },
+  {
+    slug: 'tesla',
+    letter: 'T',
+    color: '#CC0000',
+    logoSrc: '/logos/tesla.png',
+    company: 'Tesla',
+    sub: 'Automation & Data Systems',
+    role: 'Machine Learning Engineer Intern',
+    period: 'Jan 2024 – May 2024',
+    duration: '5m',
+    location: 'Fremont, CA',
+    summary: 'Shipped real-time ML infrastructure across vehicle manufacturing assembly lines — reducing downtime by 30% and giving engineers predictive visibility 3 days ahead of equipment failure.',
+    bullets: [
+      {
+        text: 'Built a <strong>predictive maintenance system</strong> for factory robots — training ML models to forecast equipment failures before they cause production downtime, achieving <strong>90% accuracy 3 days ahead</strong>.',
+        tags: ['TensorFlow', 'scikit-learn', 'Time Series', 'SHAP', 'Python'],
+      },
+      {
+        text: 'Developed <strong>real-time anomaly detection</strong> systems across production lines to surface equipment failures and improve visibility for manufacturing engineers. Reduced downtime by <strong>30%</strong>, optimized runtime by <strong>500%</strong>.',
+        tags: ['Go', 'Python', 'InfluxDB', 'MQTT', 'Grafana', 'Docker'],
+      },
+      {
+        text: 'Trained <strong>regression models</strong> to simulate equipment behavior, giving engineers a data-driven way to refine and tune machinery across <strong>200+ welding robots</strong>.',
+        tags: ['scikit-learn', 'MLflow', 'Python', 'CI/CD', 'Jenkins'],
+      },
+    ],
+    open: false,
+  },
+  {
+    slug: 'homebase',
+    letter: 'H',
+    color: '#D97706',
+    logoSrc: '/logos/homebase.png',
+    company: 'Homebase',
+    sub: 'Y Combinator W21',
+    role: 'Machine Learning Engineer Intern',
+    period: 'Jun 2023 – Sep 2023',
+    duration: '4m',
+    location: 'Ho Chi Minh City, Vietnam',
+    summary: 'Designed and shipped two production ML systems from scratch at a YC-backed startup — a recommender engine on AWS and a risk automation platform with full MLOps infrastructure.',
+    bullets: [
+      {
+        text: 'Designed and shipped a <strong>hybrid recommender system</strong> for a real estate platform — combining embedding-based and collaborative filtering approaches, served via FastAPI on AWS.',
+        tags: ['FastAPI', 'AWS', 'Embeddings', 'Collaborative Filtering', 'Docker'],
+      },
+      {
+        text: 'Built a <strong>risk automation platform</strong> for a prop-tech financing workflow that flags high-risk deals, enforces underwriting rules, and generates audit logs automatically.',
+        tags: ['Streamlit', 'FastAPI', 'Celery', 'PostgreSQL', 'Docker'],
+      },
+      {
+        text: 'Set up <strong>MLOps pipelines</strong> with drift detection and blue-green deployment to keep production models reliable over time.',
+        tags: ['MLflow', 'CI/CD', 'Docker', 'Redis', 'Scrapy'],
+      },
+    ],
+    open: false,
+  },
+  {
+    letter: 'S',
+    color: '#7C3AED',
+    logoSrc: '/logos/sanghani.png',
+    company: 'Sanghani Center for AI & Data Analytics',
+    sub: '',
+    role: 'Machine Learning Researcher',
+    period: 'Apr 2023 – Dec 2023',
+    duration: '9m',
+    location: 'Falls Church, VA',
+    summary: 'Built and deployed an interactive ML education platform on Kubernetes, making complex algorithms accessible to Virginia Tech students and faculty at scale.',
+    bullets: [
+      {
+        text: 'Built and deployed an <strong>interactive ML visualization platform</strong> for teaching and research at Virginia Tech — enabling hands-on exploration of ML algorithms.',
+        tags: ['Python', 'Dash', 'Plotly', 'GCP', 'Kubernetes'],
+      },
+      {
+        text: 'Made complex ML concepts more accessible to students and faculty through <strong>visual, interactive exploration tools</strong> served on a production Kubernetes cluster.',
+        tags: ['Python', 'Flask', 'Docker', 'GCP'],
+      },
+    ],
+    open: false,
+  },
+  {
+    letter: 'C',
+    color: '#1D4ED8',
+    logoSrc: '/logos/cci.png',
+    company: 'Commonwealth Cyber Initiative',
+    sub: '',
+    role: 'Machine Learning Researcher',
+    period: 'May 2021 – Aug 2022',
+    duration: '1y 4m',
+    location: 'Arlington, VA',
+    summary: 'Developed a deep learning system for SCADA cyber attack detection, ranking top-3 on the BATADAL benchmark and publishing findings in the Elsevier Journal of Water Process Engineering.',
+    bullets: [
+      {
+        text: 'Developed a <strong>deep learning cyber attack detection system</strong> for water distribution infrastructure — modeling spatial-temporal patterns across large-scale SCADA sensor networks in Washington D.C.',
+        tags: ['PyTorch', 'Graph Neural Networks', 'SCADA', 'Time Series', 'Python'],
+      },
+      {
+        text: 'Built a <strong>production monitoring dashboard</strong> to integrate the ML pipeline into an industrial SCADA workflow, making model outputs actionable for operators.',
+        tags: ['Python', 'Dash', 'Plotly', 'SCADA'],
+      },
+      {
+        text: 'Validated the system against simulated poisoning attacks using synthetic data generation, achieving a <strong>top-3 ranking on the BATADAL benchmark</strong>. Published in <em>Elsevier Journal of Water Process Engineering</em>, Vol. 52 (2023).',
+        tags: ['Adversarial ML', 'Synthetic Data', 'Research', 'Publication'],
+      },
+    ],
+    open: false,
+  },
+  {
+    letter: 'G',
+    color: '#059669',
+    logoSrc: '/logos/geolab.png',
+    company: 'Geo Lab',
+    sub: '',
+    role: 'Machine Learning Researcher',
+    period: 'Sep 2020 – May 2021',
+    duration: '9m',
+    location: 'Williamsburg, VA',
+    summary: 'Led a 7-person team to build a satellite road quality classifier — 2nd place among 8 universities, with an 80% reduction in adversarial attack vulnerability.',
+    bullets: [
+      {
+        text: 'Led a team of seven to build a <strong>satellite image classification pipeline</strong> for assessing road quality in developing regions — from raw data collection through model training and evaluation.',
+        tags: ['TensorFlow', 'CNN', 'Transfer Learning', 'Computer Vision', 'Python'],
+      },
+      {
+        text: 'Improved model robustness against <strong>data poisoning attacks</strong> by developing an Autoencoder-based defense mechanism, mitigating <strong>80% of adversarial attacks</strong>.',
+        tags: ['Autoencoder', 'PyTorch', 'Adversarial ML', 'Data Augmentation'],
+      },
+      {
+        text: 'Placed <strong>2nd among eight universities</strong> in the Geo Lab Research Fellowship competition for model performance and dataset size.',
+        tags: ['Research', 'Team Leadership'],
+      },
+    ],
+    open: false,
+  },
+];
+---
+
+<section class="py-10 border-b border-[#DDD5C8]">
+  <div class="flex items-center gap-2 mb-5">
+    <div class="w-[3px] h-4 bg-[#CC4400]"></div>
+    <span class="text-[14px] font-medium tracking-[0.12em] uppercase text-[#888078]">
+      Experience · 2Y FTE · 2Y+ Intern &amp; Research
+    </span>
+  </div>
+
+  <div class="divide-y divide-[#EEE8E0]">
+    {jobs.map((job) => (
+      <div id={`exp-${job.slug}`} class={`experience-item${job.open ? ' open' : ''}`}>
+        <!-- Clickable header -->
+        <button
+          class="experience-toggle w-full flex items-center gap-3 py-4 text-left"
+          aria-expanded={job.open ? 'true' : 'false'}
+        >
+          <!-- Logo / letter square -->
+          <div class="logo-box w-10 h-10 shrink-0 relative overflow-hidden">
+            <img
+              src={job.logoSrc}
+              alt={job.company}
+              class="logo-img w-10 h-10 object-contain"
+              style="display:none; background:transparent; mix-blend-mode:multiply;"
+            />
+            <div
+              class="logo-fallback w-10 h-10 flex items-center justify-center text-white text-xs font-bold"
+              style={`background-color:${job.color};`}
+            >
+              {job.letter}
+            </div>
+          </div>
+          <!-- Company info -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline flex-wrap gap-x-2 mb-0.5">
+              <span class="text-[17px] font-semibold tracking-[0.06em] uppercase">{job.company}</span>
+              {job.sub && <span class="text-xs text-[#AAA098]">({job.sub})</span>}
+              <span class="text-[#CCC5BC] text-xs">·</span>
+              <span class="text-[15px] text-[#4A4540] font-light">{job.role}</span>
+            </div>
+            <div class="flex items-baseline flex-wrap gap-x-2 text-[14px] text-[#888078] font-light">
+              <span>{job.period} <span class="text-[#CCC5BC]">({job.duration})</span></span>
+              <span class="text-[#CCC5BC]">·</span>
+              <span>{job.location}</span>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <svg
+            class="chevron shrink-0 text-[#AAA098] transition-transform duration-200"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            width="14"
+            height="14"
+          >
+            <polyline points="4,6 8,10 12,6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Summary always visible -->
+        <p class="text-[14px] text-[#888078] font-light leading-relaxed pl-13 pb-3 italic">{job.summary}</p>
+
+        <!-- Expandable content -->
+        <div class="experience-content">
+          <div class="pb-6 pl-13">
+            <ul class="space-y-4">
+              {job.bullets.map((bullet) => (
+                <li class="pl-3 border-l border-[#DDD5C8]">
+                  <p
+                    class="text-[15px] text-[#4A4540] leading-[1.7] font-light mb-2"
+                    set:html={bullet.text}
+                  />
+                  <div class="flex flex-wrap gap-1.5">
+                    {bullet.tags.map((tag) => (
+                      <span class="px-2 py-0.5 text-[11px] font-light bg-[#F0EDE8] text-[#666059] border border-[#E0D8D0] rounded-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .experience-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .experience-item.open .experience-content {
+    max-height: 2000px;
+  }
+  .experience-item.open .chevron {
+    transform: rotate(180deg);
+  }
+  .experience-toggle:hover .chevron {
+    color: #CC4400;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.experience-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.experience-item');
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  document.querySelectorAll('.logo-img').forEach((img) => {
+    const fallback = img.nextElementSibling;
+    img.addEventListener('load', () => {
+      img.style.display = 'block';
+      fallback.style.display = 'none';
+    });
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      fallback.style.display = 'flex';
+    });
+    if (img.complete && img.naturalWidth > 0) {
+      img.style.display = 'block';
+      fallback.style.display = 'none';
+    }
+  });
+</script>

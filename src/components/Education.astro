@@ -1,0 +1,147 @@
+---
+const degrees = [
+  {
+    letter: 'V',
+    color: '#861F41',
+    logoSrc: '/logos/virginia-tech.png',
+    school: 'Virginia Tech',
+    degree: 'MS Computer Engineering (Machine Learning)',
+    period: 'Aug 2022 – May 2024',
+    location: 'Falls Church, VA',
+    gpa: '3.9 / 4.0',
+    summary: 'Graduate research focused on machine learning systems, trustworthy AI, and scalable infrastructure. Funded by the Commonwealth Cyber Initiative (CCI).',
+    courses: 'Deep Learning, Reinforcement Learning, Trustworthy ML, NLP, Computer Vision, Scalable System Design.',
+    open: true,
+  },
+  {
+    letter: 'V',
+    color: '#861F41',
+    logoSrc: '/logos/virginia-tech.png',
+    school: 'Virginia Tech',
+    degree: 'BS Computer Engineering, Minor in Computer Science',
+    period: 'Aug 2018 – May 2022',
+    location: 'Blacksburg, VA',
+    gpa: '3.7 / 4.0',
+    summary: 'Undergraduate foundation in computer engineering with a focus on systems, algorithms, and applied ML.',
+    courses: 'Machine Learning, Data Analytics & Visualization, Software Engineering, Data Structures & Algorithms, Computer Architecture, Embedded Systems.',
+    open: false,
+  },
+];
+---
+
+<section class="py-10 border-b border-[#DDD5C8]">
+  <div class="flex items-center gap-2 mb-5">
+    <div class="w-[3px] h-4 bg-[#CC4400]"></div>
+    <span class="text-[14px] font-medium tracking-[0.12em] uppercase text-[#888078]">Education</span>
+  </div>
+
+  <div class="divide-y divide-[#EEE8E0]">
+    {degrees.map((d) => (
+      <div class={`edu-item${d.open ? ' open' : ''}`}>
+        <button
+          class="edu-toggle w-full flex items-center gap-3 py-4 text-left"
+          aria-expanded={d.open ? 'true' : 'false'}
+        >
+          <!-- Logo / letter square -->
+          <div class="logo-box w-10 h-10 shrink-0 relative overflow-hidden">
+            <img
+              src={d.logoSrc}
+              alt={d.school}
+              class="edu-logo-img w-10 h-10 object-contain"
+              style="display:none; background:transparent; mix-blend-mode:multiply;"
+            />
+            <div
+              class="edu-logo-fallback w-10 h-10 flex items-center justify-center text-white text-xs font-bold"
+              style={`background-color:${d.color};`}
+            >
+              {d.letter}
+            </div>
+          </div>
+          <!-- Degree info -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline flex-wrap gap-x-2 mb-0.5">
+              <span class="text-[17px] font-semibold tracking-[0.06em] uppercase">{d.school}</span>
+              <span class="text-[#CCC5BC] text-xs">·</span>
+              <span class="text-[15px] text-[#4A4540] font-light">{d.degree}</span>
+            </div>
+            <div class="flex items-baseline flex-wrap gap-x-2 text-[14px] text-[#888078] font-light">
+              <span>{d.period}</span>
+              <span class="text-[#CCC5BC]">·</span>
+              <span>{d.location}</span>
+            </div>
+          </div>
+          <!-- Chevron -->
+          <svg
+            class="edu-chevron shrink-0 text-[#AAA098] transition-transform duration-200"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            width="14"
+            height="14"
+          >
+            <polyline points="4,6 8,10 12,6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Summary always visible -->
+        <p class="text-[14px] text-[#888078] font-light leading-relaxed pl-13 pb-3 italic">{d.summary}</p>
+
+        <!-- Expandable content -->
+        <div class="edu-content">
+          <div class="pb-5 pl-13">
+            <p class="text-[14px] text-[#888078] font-light leading-relaxed">
+              <span class="font-medium text-[#4A4540]">GPA:</span> {d.gpa}
+              &nbsp;·&nbsp;
+              {d.courses}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .edu-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .edu-item.open .edu-content {
+    max-height: 400px;
+  }
+  .edu-item.open .edu-chevron {
+    transform: rotate(180deg);
+  }
+  .edu-toggle:hover .edu-chevron {
+    color: #CC4400;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.edu-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.edu-item');
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  document.querySelectorAll('.edu-logo-img').forEach((img) => {
+    const fallback = img.nextElementSibling;
+    img.addEventListener('load', () => {
+      img.style.display = 'block';
+      fallback.style.display = 'none';
+    });
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      fallback.style.display = 'flex';
+    });
+    if (img.complete && img.naturalWidth > 0) {
+      img.style.display = 'block';
+      fallback.style.display = 'none';
+    }
+  });
+</script>
