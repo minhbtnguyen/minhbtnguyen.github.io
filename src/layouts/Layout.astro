@@ -28,6 +28,18 @@ const {
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap"
       rel="stylesheet"
     />
+    <!-- Inline: set dark class before first paint to prevent flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body
     class="bg-[#FFFDF9] text-[#1A1A1A] antialiased"
@@ -36,3 +48,77 @@ const {
     <slot />
   </body>
 </html>
+
+<style is:global>
+  /* ============================================================
+     DARK MODE — black bg, white/bright-grey/orange text palette
+  ============================================================ */
+
+  /* Body */
+  html.dark body { background-color: #000000; color: #FFFFFF; }
+
+  /* ── Backgrounds ── */
+  html.dark .bg-\[\#FFFDF9\]     { background-color: #000000; }
+  html.dark .bg-\[\#FEFCF8\]     { background-color: #0D0D0D; }
+  html.dark .bg-white             { background-color: #0D0D0D; }
+  html.dark .bg-\[\#F5F2ED\],
+  html.dark .bg-\[\#F5F3F0\],
+  html.dark .bg-\[\#F0EDE8\]     { background-color: #1A1A1A; }
+  html.dark .bg-\[\#EDE8E0\],
+  html.dark .bg-\[\#EEE8E0\]     { background-color: #111111; }
+
+  /* Navbar / mobile menu with opacity */
+  html.dark .bg-\[\#FFFDF9\]\/50 { background-color: rgb(0 0 0 / 0.6); }
+  html.dark .bg-\[\#FFFDF9\]\/95 { background-color: rgb(0 0 0 / 0.95); }
+
+  /* ── Text ── */
+  html.dark .text-\[\#1A1A1A\]   { color: #FFFFFF; }
+  html.dark .text-\[\#4A4540\]   { color: #CCCCCC; }   /* bright grey */
+  html.dark .text-\[\#888078\]   { color: #999999; }   /* mid grey */
+  html.dark .text-\[\#666059\]   { color: #BBBBBB; }   /* bright grey */
+  html.dark .text-\[\#AAA098\]   { color: #666666; }   /* dim grey */
+  html.dark .text-\[\#CCC5BC\]   { color: #333333; }   /* subtle separator */
+
+  /* Hover text */
+  html.dark .hover\:text-\[\#1A1A1A\]:hover { color: #FFFFFF; }
+
+  /* ── Borders ── */
+  html.dark .border-\[\#DDD5C8\]   { border-color: #2A2A2A; }
+  html.dark .border-\[\#E4DDD4\]   { border-color: #222222; }
+  html.dark .border-\[\#E8E4DE\]   { border-color: #222222; }
+  html.dark .border-\[\#E0D8D0\]   { border-color: #222222; }
+  html.dark .border-\[\#EDE8E0\]   { border-color: #1A1A1A; }
+  html.dark .border-\[\#EEE8E0\]   { border-color: #1A1A1A; }
+  html.dark .border-\[\#C2B8AF\]   { border-color: #333333; }
+  html.dark .border-\[\#C8BFB4\]   { border-color: #333333; }
+  html.dark .border-\[\#C0B5A8\]   { border-color: #333333; }
+
+  /* Opacity border modifier */
+  html.dark .border-\[\#DDD5C8\]\/60 { border-color: rgb(42 42 42 / 0.6); }
+
+  /* ── Divide (Experience / Education accordion) ── */
+  html.dark .divide-\[\#EEE8E0\] > :not([hidden]) ~ :not([hidden]) {
+    border-color: #1A1A1A;
+  }
+
+  /* ── Hover border colors ── */
+  html.dark .hover\:border-\[\#C8BFB4\]:hover { border-color: #444444; }
+  html.dark .hover\:border-\[\#C0B5A8\]:hover { border-color: #444444; }
+
+  /* ── Card hover shadow ── */
+  html.dark .hover\:shadow-\[0_8px_32px_rgba\(0\,0\,0\,0\.07\)\]:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ── Logo mark border (inline style override) ── */
+  html.dark header a[aria-label="Home"] > div {
+    border-color: #333333 !important;
+  }
+
+  /* ── Company / school logo images — white bg in dark mode ── */
+  html.dark .logo-box,
+  html.dark .logo-box img {
+    background-color: #FFFFFF !important;
+    mix-blend-mode: normal !important;
+  }
+</style>

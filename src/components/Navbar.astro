@@ -38,7 +38,7 @@ const navLinks = [
     <!-- Right -->
     <div class="flex items-center gap-5 shrink-0">
 
-      <!-- Desktop: GitHub + LinkedIn + email text -->
+      <!-- Desktop-only: GitHub + LinkedIn + email text -->
       <a
         href="https://github.com/minhbtnguyen"
         target="_blank"
@@ -68,7 +68,7 @@ const navLinks = [
         minhbtnguyen.work@gmail.com
       </a>
 
-      <!-- Mobile: email + GitHub + LinkedIn icons + hamburger -->
+      <!-- Mobile-only: email + GitHub + LinkedIn icons -->
       <a
         href="mailto:minhbtnguyen.work@gmail.com"
         class="lg:hidden text-[#666059] hover:text-[#CC4400] transition-colors"
@@ -102,16 +102,40 @@ const navLinks = [
         </svg>
       </a>
 
-      <!-- Hamburger button -->
+      <!-- Theme toggle — always visible, sits right of email (desktop) and left of hamburger (mobile) -->
+      <button
+        id="theme-toggle"
+        class="text-[#666059] hover:text-[#CC4400] transition-colors flex items-center justify-center"
+        aria-label="Toggle dark mode"
+      >
+        <!-- Moon: shown in light mode -->
+        <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun: shown in dark mode -->
+        <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17" style="display:none">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+
+      <!-- Hamburger — mobile only -->
       <button
         id="mobile-menu-btn"
         class="lg:hidden flex flex-col justify-center items-center gap-[5px] w-7 h-7 text-[#666059] hover:text-[#CC4400] transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
-        <span class="hamburger-bar block w-5 h-px bg-current transition-all duration-200"></span>
-        <span class="hamburger-bar block w-5 h-px bg-current transition-all duration-200"></span>
-        <span class="hamburger-bar block w-5 h-px bg-current transition-all duration-200"></span>
+        <span class="block w-5 h-px bg-current transition-all duration-200"></span>
+        <span class="block w-5 h-px bg-current transition-all duration-200"></span>
+        <span class="block w-5 h-px bg-current transition-all duration-200"></span>
       </button>
 
     </div>
@@ -139,20 +163,40 @@ const navLinks = [
 </header>
 
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
+  // ── Mobile menu ──
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-  btn?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden', isOpen);
-    btn.setAttribute('aria-expanded', String(!isOpen));
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Close menu when a nav link is clicked
-  menu?.querySelectorAll('a').forEach((link) => {
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  // ── Theme toggle ──
+  const themeBtn = document.getElementById('theme-toggle');
+  const moonIcon = document.getElementById('icon-moon');
+  const sunIcon = document.getElementById('icon-sun');
+
+  function applyThemeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+    if (sunIcon)  sunIcon.style.display  = isDark ? 'block' : 'none';
+  }
+
+  // Set correct icon on load
+  applyThemeIcons();
+
+  themeBtn?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    applyThemeIcons();
   });
 </script>
