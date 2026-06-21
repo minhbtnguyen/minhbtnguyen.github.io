@@ -8,7 +8,7 @@
     Minh Nguyen.
   </h1>
   <p class="text-[30px] text-[#1A1A1A] mb-5 font-light tracking-tight text-center lg:text-left">
-    I build ML systems from zero to production. Fast.
+    I build ML systems from zero to production. <span class="fast-highlight">Fast.</span>
   </p>
   <p class="text-[18px] text-[#4A4540] leading-[1.75] max-w-[660px] mb-6 font-light text-center lg:text-left mx-auto lg:mx-0">
     Machine Learning Engineer with 3+ years at
@@ -20,6 +20,11 @@
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">agentic reasoning</a>,
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">RAG pipelines</a>, and
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">real-time data infrastructure</a>.
+    AI-native workflow with
+    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Claude Code</a>,
+    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Copilot CLI</a>,
+    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">MCP servers</a>, and
+    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">custom agent skills</a>.
     I work best in high-ownership teams that value speed, reliability, and end-to-end execution.
   </p>
   <div class="flex flex-col gap-2 text-[14px] text-[#888078] font-light">
@@ -90,3 +95,23 @@
     });
   });
 </script>
+
+<style>
+  @keyframes fastPulse {
+    0%, 100% { color: #1A1A1A; }
+    50%       { color: #CC4400; }
+  }
+
+  @keyframes fastPulseDark {
+    0%, 100% { color: #FFFFFF; }
+    50%       { color: #CC4400; }
+  }
+
+  .fast-highlight {
+    animation: fastPulse 2.5s ease-in-out infinite;
+  }
+
+  :global(html.dark) .fast-highlight {
+    animation-name: fastPulseDark;
+  }
+</style>
