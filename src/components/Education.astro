@@ -10,7 +10,17 @@ const degrees = [
     location: 'Falls Church, VA',
     gpa: '3.9 / 4.0',
     summary: 'Graduate research focused on machine learning systems, trustworthy AI, and scalable infrastructure. Funded by the Commonwealth Cyber Initiative (CCI).',
-    courses: 'Deep Learning, Reinforcement Learning, Trustworthy ML, NLP, Computer Vision, Scalable System Design.',
+    researchAssistant: ['Commonwealth Cyber Initiative'],
+    courses: [
+      'Deep Learning',
+      'Reinforcement Learning',
+      'Trustworthy Machine Learning',
+      'Natural Language Processing',
+      'Scalable System Design',
+      'Data Analytics',
+      'Computer Vision',
+      'Digital Image Processing',
+    ],
     open: false,
   },
   {
@@ -23,7 +33,31 @@ const degrees = [
     location: 'Blacksburg, VA',
     gpa: '3.7 / 4.0',
     summary: 'Undergraduate foundation in computer engineering with a focus on systems, algorithms, and applied ML.',
-    courses: 'Machine Learning, Data Analytics & Visualization, Software Engineering, Data Structures & Algorithms, Computer Architecture, Embedded Systems.',
+    researchAssistant: [
+      'GeoLab',
+      'Terrestrial Robotics Engineering & Controls Lab',
+      'Hybrid Electric Vehicle Team',
+      'Wireless Lab',
+    ],
+    teachingAssistant: ['Integrated Systems Design (ECE 2804)'],
+    leadership: [
+      'President, Robotics & Engineering Club',
+      'Industry Relations Chair, IEEE Student Branch at Virginia Tech',
+    ],
+    courses: [
+      'AI & Engineering Applications',
+      'Web Application Development',
+      'Software Engineering',
+      'Real-time Systems',
+      'Data Analytics & Visualization',
+      'Applied Software Design',
+      'Data Structures & Algorithms',
+      'Computer Architecture',
+      'Embedded Systems',
+      'Signal & Systems',
+      'Integrated Systems Design',
+      'Digital Systems',
+    ],
     open: false,
   },
 ];
@@ -89,11 +123,31 @@ const degrees = [
 
         <!-- Expandable content -->
         <div class="edu-content">
-          <div class="pb-5 pl-13">
+          <div class="pb-5 pl-13 space-y-1.5">
             <p class="text-[14px] text-[#888078] font-light leading-relaxed">
               <span class="font-medium text-[#4A4540]">GPA:</span> {d.gpa}
-              &nbsp;·&nbsp;
-              {d.courses}
+            </p>
+
+            {d.researchAssistant && (
+              <p class="text-[14px] text-[#888078] font-light leading-relaxed">
+                <span class="font-medium text-[#4A4540]">Research Assistant:</span> {d.researchAssistant.join(', ')}
+              </p>
+            )}
+
+            {d.teachingAssistant && (
+              <p class="text-[14px] text-[#888078] font-light leading-relaxed">
+                <span class="font-medium text-[#4A4540]">Teaching Assistant:</span> {d.teachingAssistant.join(', ')}
+              </p>
+            )}
+
+            {d.leadership && (
+              <p class="text-[14px] text-[#888078] font-light leading-relaxed">
+                <span class="font-medium text-[#4A4540]">Leadership:</span> {d.leadership.join(', ')}
+              </p>
+            )}
+
+            <p class="text-[14px] text-[#888078] font-light leading-relaxed">
+              <span class="font-medium text-[#4A4540]">Coursework:</span> {d.courses.join(', ')}
             </p>
           </div>
         </div>
@@ -109,7 +163,7 @@ const degrees = [
     transition: max-height 0.3s ease;
   }
   .edu-item.open .edu-content {
-    max-height: 400px;
+    max-height: 500px;
   }
   .edu-item.open .edu-chevron {
     transform: rotate(180deg);
