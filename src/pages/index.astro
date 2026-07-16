@@ -16,15 +16,15 @@ import Footer from '../components/Footer.astro';
     <div class="flex gap-16">
       <!-- Main content -->
       <main class="flex-1 min-w-0">
-        <Hero />
-        <Contact />
-        <Experience />
+        <div data-animate style="transition-delay: 0ms;"><Hero /></div>
+        <div data-animate style="transition-delay: 100ms;"><Contact /></div>
+        <div data-animate><Experience /></div>
         <!-- Mobile: Spare-time Builds between Experience and Education -->
-        <div class="block lg:hidden py-10 border-b border-[#DDD5C8]">
+        <div class="block lg:hidden py-10 border-b border-[#DDD5C8]" data-animate>
           <Projects />
         </div>
-        <Education />
-        <Skills />
+        <div data-animate><Education /></div>
+        <div data-animate><Skills /></div>
       </main>
       <!-- Sidebar: projects (desktop only) — fixed so it never moves on scroll -->
       <aside class="w-[300px] shrink-0 hidden lg:block">
@@ -32,7 +32,7 @@ import Footer from '../components/Footer.astro';
           class="fixed top-[136px] hidden lg:block"
           style="width:300px; right:calc(max(0px, (100vw - 1280px) / 2) + 40px);"
         >
-          <Projects />
+          <div data-animate style="transition-delay: 200ms;"><Projects /></div>
         </div>
       </aside>
     </div>

@@ -11,7 +11,7 @@ import { projects } from '../data/projects.js';
 
     <div class="flex-1 max-w-[1200px] mx-auto px-10 pt-16 pb-10 w-full">
       <!-- Page heading -->
-      <div class="mb-12 text-center">
+      <div class="mb-12 text-center" data-animate>
         <p class="text-[14px] font-medium tracking-[0.2em] uppercase text-[#CC4400] mb-3">Minh's Ideas</p>
         <h1
           class="text-[34px] text-[#1A1A1A] tracking-tight leading-[1.1]"
@@ -24,8 +24,12 @@ import { projects } from '../data/projects.js';
       <!-- 3-column grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          projects.map((p) => (
-            <article class="project-card group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] overflow-hidden">
+          projects.map((p, i) => (
+            <article
+              class="project-card group flex flex-col border border-[#E4DDD4] bg-[#FEFCF8] hover:shadow-[0_8px_32px_rgba(0,0,0,0.07)] overflow-hidden"
+              data-animate
+              style={`transition-delay: ${(i % 3) * 100}ms;`}
+            >
 
               <!-- Screenshot image — 16:9 aspect ratio -->
               <div class="relative overflow-hidden bg-[#EDE8E0]" style="aspect-ratio:16/9;">
