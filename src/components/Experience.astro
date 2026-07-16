@@ -177,8 +177,8 @@ const jobs = [
   </div>
 
   <div class="divide-y divide-[#EEE8E0]">
-    {jobs.map((job) => (
-      <div id={`exp-${job.slug}`} class={`experience-item${job.open ? ' open' : ''}`}>
+    {jobs.map((job, i) => (
+      <div id={`exp-${job.slug}`} class={`experience-item${job.open ? ' open' : ''}`} style={`--pulse-delay: ${(i % 4) * 0.75}s;`}>
         <!-- Clickable header -->
         <button
           class="experience-toggle w-full flex items-center gap-3 py-4 text-left"
@@ -271,6 +271,37 @@ const jobs = [
   }
   .experience-toggle:hover .chevron {
     color: #CC4400;
+  }
+
+  @keyframes chevronPulse {
+    0%, 100% { color: #AAA098; }
+    50%       { color: #CC4400; }
+  }
+
+  @keyframes chevronPulseDark {
+    0%, 100% { color: #666666; }
+    50%       { color: #CC4400; }
+  }
+
+  .chevron {
+    animation: chevronPulse 3s ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0s);
+  }
+
+  :global(html.dark) .chevron {
+    animation-name: chevronPulseDark;
+  }
+
+  .experience-toggle:hover .chevron,
+  .experience-item.open .chevron {
+    animation: none;
+    color: #CC4400;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chevron {
+      animation: none;
+    }
   }
 </style>
 

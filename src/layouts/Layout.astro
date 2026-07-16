@@ -236,8 +236,9 @@ const {
     background: radial-gradient(circle, rgba(204, 68, 0, 0.22) 0%, rgba(204, 68, 0, 0) 70%);
   }
 
-  /* Keep page content above the glow */
-  body > :not(#cursor-glow) {
+  /* Keep page content above the glow (header excluded — it manages its own
+     sticky positioning and already outranks the glow via z-50) */
+  body > :not(#cursor-glow):not(header) {
     position: relative;
     z-index: 1;
   }
