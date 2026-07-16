@@ -7,8 +7,8 @@
   >
     Minh Nguyen.
   </h1>
-  <p class="text-[30px] text-[#1A1A1A] mb-5 font-light tracking-tight text-center lg:text-left">
-    I build ML systems from zero to production. <span class="fast-highlight">Fast.</span>
+  <p class="text-[30px] text-[#1A1A1A] mb-5 font-light tracking-tight text-center lg:text-left min-h-[40px] lg:min-h-0">
+    <span id="hero-typewriter"></span><span class="typewriter-cursor" aria-hidden="true">|</span> <span class="fast-highlight">Fast.</span>
   </p>
   <p class="text-[18px] text-[#4A4540] leading-[1.75] max-w-[660px] mb-6 font-light text-center lg:text-left mx-auto lg:mx-0">
     Machine Learning Engineer with 3+ years at
@@ -16,10 +16,9 @@
     <a href="#exp-tesla" data-expand="exp-tesla" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Tesla</a>, and
     <a href="#exp-homebase" data-expand="exp-homebase" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Homebase (Y Combinator)</a>.
     Strong foundation in taking ML systems from zero to production — spanning
-    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">document intelligence</a>,
-    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">agentic reasoning</a>,
-    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">RAG pipelines</a>, and
+    <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">agentic system</a> and
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">real-time data infrastructure</a>.
+    I partner with stakeholders to turn business goals into production systems.
     AI-native workflow with
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Claude Code</a>,
     <a href="#skills" data-scroll="skills" class="hero-link font-semibold text-[#1A1A1A] hover:text-[#CC4400] transition-colors cursor-pointer">Copilot CLI</a>,
@@ -37,9 +36,8 @@
       </svg>
       <span>Machine Learning</span><span>·</span>
       <span>Agentic AI</span><span>·</span>
-      <span>RAG</span><span>·</span>
-      <span>Document Intelligence</span><span>·</span>
-      <span>MLOps</span>
+      <span>MLOps</span><span>·</span>
+      <span>Enterprise Software</span>
     </div>
     <!-- Locations row -->
     <div class="flex flex-wrap gap-x-2.5 gap-y-1 items-center justify-center lg:justify-start">
@@ -94,9 +92,68 @@
       scrollTo(id);
     });
   });
+
+  const TAGLINES = [
+    'I build ML systems from zero to production.',
+    'I translate business goals into impact.',
+    'I own systems end-to-end.',
+    'I hold my code to a standard that scales.',
+    "I build like it's my own company.",
+  ];
+
+  const typewriterEl = document.getElementById('hero-typewriter');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (typewriterEl) {
+    if (reduceMotion) {
+      typewriterEl.textContent = TAGLINES[0];
+    } else {
+      let sentenceIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      const tick = () => {
+        const current = TAGLINES[sentenceIndex];
+
+        if (!deleting) {
+          charIndex++;
+          typewriterEl.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(tick, 1800);
+            return;
+          }
+        } else {
+          charIndex--;
+          typewriterEl.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            sentenceIndex = (sentenceIndex + 1) % TAGLINES.length;
+            setTimeout(tick, 300);
+            return;
+          }
+        }
+        setTimeout(tick, deleting ? 30 : 45);
+      };
+
+      tick();
+    }
+  }
 </script>
 
 <style>
+  .typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: #CC4400;
+    animation: cursorBlink 0.9s step-end infinite;
+  }
+
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
   @keyframes fastPulse {
     0%, 100% { color: #1A1A1A; }
     50%       { color: #CC4400; }
@@ -113,5 +170,17 @@
 
   :global(html.dark) .fast-highlight {
     animation-name: fastPulseDark;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .typewriter-cursor {
+      animation: none;
+      opacity: 1;
+    }
+
+    .fast-highlight {
+      animation: none;
+      color: #CC4400;
+    }
   }
 </style>
