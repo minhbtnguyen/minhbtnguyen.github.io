@@ -73,8 +73,8 @@ const degrees = [
   </div>
 
   <div class="divide-y divide-[#EEE8E0]">
-    {degrees.map((d) => (
-      <div class={`edu-item${d.open ? ' open' : ''}`}>
+    {degrees.map((d, i) => (
+      <div class={`edu-item${d.open ? ' open' : ''}`} style={`--pulse-delay: ${(i % 4) * 0.75}s;`}>
         <button
           class="edu-toggle w-full flex items-center gap-3 py-4 text-left"
           aria-expanded={d.open ? 'true' : 'false'}
@@ -177,6 +177,37 @@ const degrees = [
   }
   .edu-toggle:hover .edu-chevron {
     color: #CC4400;
+  }
+
+  @keyframes eduChevronPulse {
+    0%, 100% { color: #AAA098; }
+    50%       { color: #CC4400; }
+  }
+
+  @keyframes eduChevronPulseDark {
+    0%, 100% { color: #666666; }
+    50%       { color: #CC4400; }
+  }
+
+  .edu-chevron {
+    animation: eduChevronPulse 3s ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0s);
+  }
+
+  :global(html.dark) .edu-chevron {
+    animation-name: eduChevronPulseDark;
+  }
+
+  .edu-toggle:hover .edu-chevron,
+  .edu-item.open .edu-chevron {
+    animation: none;
+    color: #CC4400;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .edu-chevron {
+      animation: none;
+    }
   }
 </style>
 
