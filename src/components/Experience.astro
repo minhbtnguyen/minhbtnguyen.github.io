@@ -1,10 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import blackrockLogo from '../assets/logos/blackrock.png';
+import teslaLogo from '../assets/logos/tesla.png';
+import homebaseLogo from '../assets/logos/homebase.png';
+import sanghaniLogo from '../assets/logos/sanghani.png';
+import cciLogo from '../assets/logos/cci.png';
+import geolabLogo from '../assets/logos/geolab.png';
+
 const jobs = [
   {
     slug: 'blackrock',
     letter: 'B',
     color: '#111111',
-    logoSrc: '/logos/blackrock.png',
+    logoSrc: blackrockLogo,
     company: 'BlackRock',
     sub: 'Technology & Operations',
     role: 'Machine Learning Engineer',
@@ -36,7 +44,7 @@ const jobs = [
     slug: 'tesla',
     letter: 'T',
     color: '#CC0000',
-    logoSrc: '/logos/tesla.png',
+    logoSrc: teslaLogo,
     company: 'Tesla',
     sub: 'Automation & Data Systems',
     role: 'Machine Learning Engineer Intern',
@@ -64,7 +72,7 @@ const jobs = [
     slug: 'homebase',
     letter: 'H',
     color: '#D97706',
-    logoSrc: '/logos/homebase.png',
+    logoSrc: homebaseLogo,
     company: 'Homebase',
     sub: 'Y Combinator W21',
     role: 'Machine Learning Engineer Intern',
@@ -91,7 +99,7 @@ const jobs = [
   {
     letter: 'S',
     color: '#7C3AED',
-    logoSrc: '/logos/sanghani.png',
+    logoSrc: sanghaniLogo,
     company: 'Sanghani Center for AI & Data Analytics',
     sub: '',
     role: 'Machine Learning Researcher',
@@ -114,7 +122,7 @@ const jobs = [
   {
     letter: 'C',
     color: '#1D4ED8',
-    logoSrc: '/logos/cci.png',
+    logoSrc: cciLogo,
     company: 'Commonwealth Cyber Initiative',
     sub: '',
     role: 'Machine Learning Researcher',
@@ -141,7 +149,7 @@ const jobs = [
   {
     letter: 'G',
     color: '#059669',
-    logoSrc: '/logos/geolab.png',
+    logoSrc: geolabLogo,
     company: 'Geo Lab',
     sub: '',
     role: 'Machine Learning Researcher',
@@ -186,9 +194,13 @@ const jobs = [
         >
           <!-- Logo / letter square -->
           <div class="logo-box w-10 h-10 shrink-0 relative overflow-hidden">
-            <img
+            <Image
               src={job.logoSrc}
               alt={job.company}
+              width={40}
+              height={40}
+              format="webp"
+              loading="eager"
               class="logo-img w-10 h-10 object-contain"
               style="display:none; background:transparent; mix-blend-mode:multiply;"
             />

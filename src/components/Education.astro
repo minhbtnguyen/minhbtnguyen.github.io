@@ -1,9 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+import virginiaTechLogo from '../assets/logos/virginia-tech.png';
+
 const degrees = [
   {
     letter: 'V',
     color: '#861F41',
-    logoSrc: '/logos/virginia-tech.png',
+    logoSrc: virginiaTechLogo,
     school: 'Virginia Tech',
     degree: 'MS Computer Engineering (Machine Learning)',
     period: 'Aug 2022 – May 2024',
@@ -26,7 +29,7 @@ const degrees = [
   {
     letter: 'V',
     color: '#861F41',
-    logoSrc: '/logos/virginia-tech.png',
+    logoSrc: virginiaTechLogo,
     school: 'Virginia Tech',
     degree: 'BS Computer Engineering, Minor in Computer Science',
     period: 'Aug 2018 – May 2022',
@@ -78,9 +81,13 @@ const degrees = [
         >
           <!-- Logo / letter square -->
           <div class="logo-box w-10 h-10 shrink-0 relative overflow-hidden">
-            <img
+            <Image
               src={d.logoSrc}
               alt={d.school}
+              width={40}
+              height={40}
+              format="webp"
+              loading="eager"
               class="edu-logo-img w-10 h-10 object-contain"
               style="display:none; background:transparent; mix-blend-mode:multiply;"
             />
