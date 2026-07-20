@@ -17,7 +17,7 @@ export const projects = [
   {
     code: 'P-02',
     name: 'RentalGPT',
-    href: 'https://github.com/minhbtnguyen/rental-gpt',
+    href: 'https://github.com/minhbtnguyen/rentalgpt',
     imageSrc: rentalgptScreenshot,
     description:
       'Rental analytics platform combining predictive modeling and a GPT-powered assistant, serving landlords, renters, and analysts from a single data pipeline.',
