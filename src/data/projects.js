@@ -6,10 +6,11 @@ export const projects = [
     code: 'P-01',
     name: 'BYOB: Bring Your Own Bike',
     href: 'https://github.com/minhbtnguyen/geolife-human-psychology',
+    demoHref: 'https://r5ryy5xzgxhg4blhppufsw.streamlit.app/',
     imageSrc: byobScreenshot,
     description:
       'End-to-end agentic mobility pipeline on the Microsoft Geolife GPS dataset: classifies commute mode from raw GPS, estimates per-user carbon footprint, and simulates how Apple ESG nudges shift behavior using LLM-powered agents.',
-    tags: ['Python', 'Streamlit', 'LightGBM', 'Claude API', 'Docker', 'Fly.io'],
+    tags: ['Python', 'Streamlit', 'LightGBM', 'Claude API', 'Docker'],
     date: 'May 2026',
     award: null,
     featured: true,

@@ -19,7 +19,7 @@ const featured = projects.filter((p) => p.featured);
           <!-- Title + GitHub icon -->
           <div class="flex items-start justify-between gap-2 mb-3">
             <a
-              href={p.href}
+              href={p.demoHref || p.href}
               target="_blank"
               rel="noopener noreferrer"
               class="text-[15px] text-[#CC4400] leading-[1.25] hover:underline decoration-[#CC4400]"
