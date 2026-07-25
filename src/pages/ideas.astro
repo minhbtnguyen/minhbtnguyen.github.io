@@ -56,19 +56,24 @@ import { projects } from '../data/projects.js';
 
                 <!-- Title + GitHub icon -->
                 <div class="flex items-start justify-between gap-2 mb-3">
-                  <h2
-                    class="text-[17px] leading-[1.25]"
-                    style="font-family:'DM Serif Display',Georgia,serif;"
-                  >
-                    <a
-                      href={p.demoHref || p.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-[#CC4400] hover:underline decoration-[#CC4400]"
+                  <span class="flex items-center gap-1.5 min-w-0">
+                    <h2
+                      class="text-[17px] leading-[1.25]"
+                      style="font-family:'DM Serif Display',Georgia,serif;"
                     >
-                      {p.name}
-                    </a>
-                  </h2>
+                      <a
+                        href={p.demoHref || p.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-[#CC4400] hover:underline decoration-[#CC4400]"
+                      >
+                        {p.name}
+                      </a>
+                    </h2>
+                    {p.demoHref && (
+                      <span class="live-dot shrink-0" title="Live demo" aria-label="Live demo"></span>
+                    )}
+                  </span>
                   <a
                     href={p.href}
                     target="_blank"
@@ -139,5 +144,35 @@ import { projects } from '../data/projects.js';
     animation: none;
     border-color: #CC4400;
     transition: border-color 0.3s ease;
+  }
+
+  .live-dot {
+    position: relative;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background-color: #22C55E;
+    margin-top: 2px;
+  }
+
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: #22C55E;
+    animation: liveDotPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes liveDotPing {
+    0%   { transform: scale(1); opacity: 0.7; }
+    75%, 100% { transform: scale(2.5); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .live-dot::after {
+      animation: none;
+    }
   }
 </style>
