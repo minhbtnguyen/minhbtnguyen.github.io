@@ -5,6 +5,13 @@ import PageFooter from '../components/PageFooter.astro';
 
 const entries = [
   {
+    date: 'Jul 26, 2026',
+    title: 'Mini matrix factorization from scratch',
+    description: 'Applied SVD and matrix factorization to recommender and LoRA.',
+    reference: 'https://colah.github.io/posts/2015-09-Visual-Information/',
+    href: 'https://github.com/minhbtnguyen/microfactor',
+  },
+  {
     date: 'May 22, 2026',
     title: 'Mini auto-gradient from scratch',
     description:
@@ -52,6 +59,16 @@ const entries = [
                   <h2 class="text-[16px] font-medium text-[#1A1A1A] mb-2">{entry.title}</h2>
                   <p class="text-[14px] font-light text-[#4A4540] leading-[1.7] mb-4">
                     {entry.description}
+                    {entry.reference && (
+                      <a
+                        href={entry.reference}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-[#CC4400] hover:underline decoration-[#CC4400]"
+                      >
+                        [1]
+                      </a>
+                    )}
                   </p>
                   <a
                     href={entry.href}
